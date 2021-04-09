@@ -12,6 +12,10 @@ jobs:
         node-version: [ 12.x, 14.x ]
     steps:
       - uses: actions/checkout@v2
+      - name: Cancel Previos Runs
+        uses: n1hility/cancel-previous-runs@v2
+          with:
+            token: ${{ secrets.SECRET }}
       - name: Running tests on Node ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -20,5 +24,6 @@ jobs:
         run: |
           npm install
           npm test
+          sleep 120s
         env:
           CI: true
