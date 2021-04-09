@@ -14,8 +14,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Cancel Previos Runs
         uses: n1hility/cancel-previous-runs@v2
-          with:
-            token: ${{ secrets.SECRET }}
+        with:
+          token: ${{ secrets.SECRET }}
       - name: Running tests on Node ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
